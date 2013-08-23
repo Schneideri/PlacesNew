@@ -1,12 +1,13 @@
 package com.places.data;
 
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,7 +32,7 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 	private TextView txtText;
 	private TextView txtDate;
 	private String sImgPath;
-	private GoogleMap mapView;
+	private GoogleMap gmMap;
 	
 
 	
@@ -51,10 +52,13 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 		txtDate = (TextView)findViewById(R.id.tv_SinglePlace_date);
 		
 		// MAP
-		mapView = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mvMapView)).getMap();
-		mapView.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-		//MapController mapController = mapView.getController();
 		
+		 GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+	    
+		 FragmentManager myFM = getSupportFragmentManager();  
+		 SupportMapFragment myMAPF = (SupportMapFragment) myFM.findFragmentById(R.id.frMapView);
+
+		 gmMap = myMAPF.getMap();
 		
 		// gets the previously created intent
 		Intent thisIntent = getIntent(); 
@@ -82,10 +86,13 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
     {
         switch (item.getItemId())
         {
+        	// in case the edit option pressed 
 	        case R.id.menu_edit:
 	        {
-	        	// Loads the Add place layout but with the existing information filled
+	        	// Loads the Add place layout but with the existing information filled - as extra strings
 	        	Intent intentToEdit = new Intent(getApplicationContext(), AddPlace.class);
+	        	
+	        	// Updating the edit flag on the intent
 	        	intentToEdit.putExtra("toEdit", true);
 	        	
 	        	intentToEdit.putExtra("extra_Name", this.txtName.getText());

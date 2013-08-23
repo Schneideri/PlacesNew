@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements OnClickListener
 			}
 			case R.id.b_find_place:
 			{
-				Intent intent = new Intent(v.getContext(), MapTry.class);
+				Intent intent = new Intent(v.getContext(), AllPlaces.class);
 				startActivity(intent);
 				break;
 			}
