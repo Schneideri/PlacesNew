@@ -190,7 +190,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 			}
 			// Case the camera button clicked
 			//DEBUG
-			/*
+			
 			case R.id.imb_Camera:
 			{
 				// defining new camera intent
@@ -205,7 +205,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 				photoPickerIntent.setType("image/*");
 				startActivityForResult(photoPickerIntent, REQ_CODE_PICK_IMAGE);    
 				break;
-			}*/
+			}
 			// Case the save place button clicked
 			case R.id.b_save_place:
 			{
@@ -272,7 +272,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 		{
 			// Save the chosen Image
 			// DEBUG
-			//SaveImage();
+			SaveImage();
 			
             // Creating an instance of SQL connecor class
 			SQL_Connector entry = new SQL_Connector(this);					          

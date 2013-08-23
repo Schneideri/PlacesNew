@@ -33,13 +33,13 @@
         
     </FrameLayout>
     
-    <fragment
+  <!--   <fragment
       android:id="@+id/frMapView"    
       android:layout_width="250dp"
       android:layout_height="200dp"
        class="com.google.android.gms.maps.SupportMapFragment"
        android:layout_gravity="center"
-      />
+      /> -->
      
      <TextView
         android:id="@+id/tv_SinglePlace_tags"

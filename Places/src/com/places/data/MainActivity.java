@@ -7,6 +7,22 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//																//
+//		Places App												//
+//																//
+//	Unique simple management of your special places				//
+//	Allows you to add any - physical or conceptual				//
+//	locations using the tags system.							//
+//																//
+//	Add places tagging them as you choose						//
+//	and find places matching your mood. 						//
+//																//
+//	Save all your favorite locations with photos				//
+//	and mark them on map. 										//
+//																//
+//	Share with a friend your secret fishing spot.				//
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public class MainActivity extends Activity implements OnClickListener
 {
 	@Override

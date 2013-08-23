@@ -42,8 +42,6 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.view_place);	
-		
-		//mapController.setCenter(point);
 	
 		imgPic  = (ImageView)findViewById(R.id.iv_SinglePlace_pic);
 		txtName = (TextView)findViewById(R.id.tv_SinglePlace_name);
@@ -52,13 +50,13 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 		txtDate = (TextView)findViewById(R.id.tv_SinglePlace_date);
 		
 		// MAP
-		
+		/*
 		 GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
 	    
 		 FragmentManager myFM = getSupportFragmentManager();  
 		 SupportMapFragment myMAPF = (SupportMapFragment) myFM.findFragmentById(R.id.frMapView);
 
-		 gmMap = myMAPF.getMap();
+		 gmMap = myMAPF.getMap();*/
 		
 		// gets the previously created intent
 		Intent thisIntent = getIntent(); 
@@ -70,7 +68,7 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 		this.txtDate.setText(thisIntent.getStringExtra("extra_Date"));
 		//DEBUG
 		this.sImgPath = thisIntent.getStringExtra("extra_ImgPath");
-		//this.imgPic.setImageBitmap(BitmapFactory.decodeFile(thisIntent.getStringExtra("extra_ImgPath")));				
+		this.imgPic.setImageBitmap(BitmapFactory.decodeFile(thisIntent.getStringExtra("extra_ImgPath")));				
 	}
 	
 	public boolean onCreateOptionsMenu(Menu menu)

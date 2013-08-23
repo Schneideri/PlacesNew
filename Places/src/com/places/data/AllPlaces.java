@@ -151,41 +151,7 @@ public class AllPlaces extends ListActivity implements OnItemClickListener, OnCl
 	      } 
 	 }
 	 
-	 /*public void showDialog(View v)
-	 {
-    	// Setting a builder for the dialog
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setTitle("Mark the tags");
-    	
-    	builder.setPositiveButton ("OK", new DialogInterface.OnClickListener() 
-    	{
-    		// Ok button clicked
-            @Override
-            public void onClick(DialogInterface dialog, int which) 
-            {
-            	// Checking wich tags are checked
-            	String sTagsForfilter = tTags.CheckedTagsToString();
-            	
-            	// filtering the view of all places by tags
-  	    	  	adapter.filterTags(sTagsForfilter); 
-   
-            }
-        });
-    	
-    	builder.setMultiChoiceItems(this.tTags.GetAllTags(),
-    			new boolean[] {false}, new DialogInterface.OnMultiChoiceClickListener() 
-    	{
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which, boolean isChecked) 
-			{
-
-			}
-		});
-    	
-    	builder.show();
-    }*/
-	 
+	 // If button back is pressed- finish current activity
 	 public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
 	    if ((keyCode == KeyEvent.KEYCODE_BACK))
