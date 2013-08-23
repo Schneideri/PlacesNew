@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/mvMapView"    
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+       class="com.google.android.gms.maps.SupportMapFragment"
+      />
+
+<!--   android:name="com.google.android.gms.maps.MapFragment"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	
+     <fragment 
+   	 	android:id="@+id/mvMapView"
+       	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+       	android:apiKey="AIzaSyCrTgRLPyeVrhWkK_b3bjZon23dVf8hhj4"
+       	android:clickable="true"
+       	android:enabled="true"/>
+</LinearLayout>-->

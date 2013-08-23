@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" 
+    android:background="@android:color/black">
+    
+    <ImageView
+        android:id="@+id/listview_Photo"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginTop="8dp" 
+        android:layout_marginBottom="8dp"/>
+    
+    
+    <TextView
+        android:id="@+id/listview_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/listview_Photo"
+        android:text=""
+        android:layout_marginLeft="5dip"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="18dp"
+        android:textColor="#EAFFDB" />
+ 
+    <TextView
+        android:id="@+id/listview_Tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listview_Name"
+        android:layout_alignLeft="@id/listview_Name"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="5dip"
+        android:text=""
+        android:textColor="#CCFFDE"
+        android:textSize="11dp" />
+ 
+<!--     <TextView -->
+<!--         android:id="@+id/listview_Text" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignBaseline="@+id/listview_Tags" -->
+<!--         android:layout_alignBottom="@+id/listview_Tags" -->
+<!--         android:layout_alignParentRight="true" -->
+<!--         android:text="" -->
+<!--         android:textColor="#343434" -->
+<!--         android:textSize="12sp" /> -->
+    
+
+</RelativeLayout>

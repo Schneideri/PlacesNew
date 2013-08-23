@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100" 
+    android:paddingLeft="3dp"
+     android:paddingRight="3dp"
+     android:background="#DCFFED" >
+     
+      <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="30">
+        
+          <LinearLayout 
+		    android:orientation="vertical"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content">
+        
+          <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="ADD PLACE"
+         android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="#F5FFFA"
+        android:textColor="#01301A"/>
+          
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Place Name:"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:background="#02607D"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/primary_text_light" />
+    
+		<LinearLayout 
+		    android:orientation="horizontal"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:weightSum="100">
+		    
+		    <EditText
+		        android:id="@+id/et_Name"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="95" >
+
+		        <requestFocus />        
+    		</EditText>
+
+		    <Button
+		        android:id="@+id/b_check_name"
+		        android:layout_weight="5"
+		        android:layout_width="wrap_content"
+		        android:layout_height="32dp"
+		        android:layout_gravity="center"
+		        android:text="Check name"
+		        android:textSize="12dp" />
+
+	</LinearLayout>
+	
+     <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Photo:"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:background="#02607D"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/primary_text_light" />
+ 
+   <LinearLayout android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+        
+       
+    
+    <ImageView
+        android:id="@+id/imv_Photo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:gravity = "left"
+        android:src="@drawable/ic_launcher"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp" 
+        android:layout_marginBottom="8dp"/>
+
+    	<RelativeLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:paddingRight="12dp"
+	         android:paddingLeft="6dp">
+
+	        <ImageButton
+	            android:id="@+id/imb_Camera"
+	            android:layout_width="60dp"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="right"
+	            android:src="@android:drawable/ic_menu_camera" />
+	
+	        <ImageButton
+	            android:id="@+id/imb_Gallery"
+	            android:layout_below="@id/imb_Camera"
+	            android:layout_width="60dp"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="right"
+	            android:src="@android:drawable/ic_menu_gallery" />
+    	</RelativeLayout>
+     </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#02607D"
+        android:text="Choose tags:"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    
+    <LinearLayout
+        android:id="@+id/layout_checkboxes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+		android:background="#F5FFFA"
+		android:layout_margin="4dp"
+		android:weightSum="3">
+    	
+        <LinearLayout android:orientation="vertical"
+             android:tag="tagsvertical"
+             android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_weight="1">
+
+             <CheckBox
+		        android:id="@+id/cb_ancient"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="ancient" />
+                    
+            <CheckBox
+                android:id="@+id/cb_animals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="cb"
+                android:text="animals" />
+            
+             <CheckBox
+                 android:id="@+id/cb_art"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:tag="cb"
+                 android:text="art" />
+            
+		    <CheckBox
+		        android:id="@+id/cb_beautiful"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="beautiful" />
+		    
+		     <CheckBox
+		        android:id="@+id/cb_children"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="children" />
+		    
+		    <CheckBox
+		        android:id="@+id/cb_date"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="date" />		    		    
+		        
+		   </LinearLayout>
+		   
+    		<LinearLayout android:orientation="vertical"
+    		     android:tag="tagsvertical"
+    		    android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_weight="1">
+		   
+    		     <CheckBox
+    		         android:id="@+id/cb_day"
+    		         android:layout_width="wrap_content"
+    		         android:layout_height="wrap_content"
+    		         android:tag="cb"
+    		         android:text="day" />
+		     
+		      <CheckBox
+		          android:id="@+id/cb_faraway"
+		          android:layout_width="wrap_content"
+		          android:layout_height="wrap_content"
+		          android:tag="cb"
+		          android:text="faraway" />
+		      
+		      <CheckBox
+		          android:id="@+id/cb_food"
+
+		          android:layout_width="wrap_content"
+		          android:layout_height="wrap_content"
+		          android:tag="cb"
+		          android:text="food" />
+		   
+		       <CheckBox
+		        android:id="@+id/cb_friends"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="friends" />
+		     
+		     <CheckBox
+		        android:id="@+id/cb_drinks"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="drinks" />
+		
+		    <CheckBox
+		        android:id="@+id/cb_nature"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="nature" />
+		    		     	     		   	       
+		     </LinearLayout>
+		      <LinearLayout android:orientation="vertical"
+		           android:tag="tagsvertical"
+    		    android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_weight="1">
+		    		          
+		        <CheckBox
+		            android:id="@+id/cb_night"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent"
+		            android:tag="cb"
+		            android:text="night" />
+		     
+		      <CheckBox
+		          android:id="@+id/cb_party"
+		          android:layout_width="wrap_content"
+		          android:layout_height="wrap_content"
+		          android:tag="cb"
+		          android:text="party" />
+		          
+		        <CheckBox
+		            android:id="@+id/cb_private"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:tag="cb"
+		            android:text="private" />
+		     
+		       <CheckBox
+		        android:id="@+id/cb_quiet"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="quiet" />
+		       
+		      <CheckBox
+		        android:id="@+id/cb_shop"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="shop" />
+		      
+		       <CheckBox
+		        android:id="@+id/cb_water"
+		        android:tag="cb"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="water" />
+		       
+		      </LinearLayout>
+		   </LinearLayout>
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_message"
+        android:background="#02607D"
+        android:text="Text:"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+ 
+    
+     <Button
+        android:id="@+id/b_save_place"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:text="Save" />
+    
+      </LinearLayout>
+      </ScrollView>
+</LinearLayout>
