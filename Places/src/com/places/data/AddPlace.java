@@ -33,6 +33,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 {
 	final static int REQ_CODE_CAMERA = 1;
 	final static int REQ_CODE_PICK_IMAGE = 2;
+	final static int REQ_CODE_MAP = 3;
 	final static int NAME_MAX = 20;
 	public static String sSecretFolder = ".secret_places";
 	
@@ -41,12 +42,14 @@ public class AddPlace extends Activity implements View.OnClickListener
 	private String 		sTags;
 	private String 		sImgPath = "not saved";
 	private String		sDate;
+	private String 		sPoint = "";
 	private Boolean 	bEditExisting;
 	private String		sOldName;
 	private Tags 		tAllTags;
 	
 	private ImageButton imbCamera; 
 	private ImageButton imbGallery;
+	private ImageButton imbMap;
 	private ImageView 	ivPreviewPhoto;
 	private Button 		btnCheckName;
 	private Button 		btnSave;
@@ -74,6 +77,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 		ivPreviewPhoto 	= (ImageView)	findViewById(R.id.imv_Photo);
 		imbCamera 		= (ImageButton) findViewById(R.id.imb_Camera);
 		imbGallery 		= (ImageButton) findViewById(R.id.imb_Gallery);
+		imbMap			= (ImageButton) findViewById(R.id.imb_Map);
 		btnCheckName	= (Button) 		findViewById(R.id.b_check_name);
 		btnSave			= (Button)	 	findViewById(R.id.b_save_place);
 		etName			= (EditText)	findViewById(R.id.et_Name);
@@ -84,6 +88,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 		btnSave.setOnClickListener(this);
 		imbCamera.setOnClickListener(this);
 		imbGallery.setOnClickListener(this);
+		imbMap.setOnClickListener(this);
 		
 		// Finding the layout of the checkboxes
 		LinearLayout layoutCB = (LinearLayout) findViewById(R.id.layout_checkboxes);
@@ -190,7 +195,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 			}
 			// Case the camera button clicked
 			//DEBUG
-			
+			/*
 			case R.id.imb_Camera:
 			{
 				// defining new camera intent
@@ -206,6 +211,14 @@ public class AddPlace extends Activity implements View.OnClickListener
 				startActivityForResult(photoPickerIntent, REQ_CODE_PICK_IMAGE);    
 				break;
 			}
+			// Case the gallery button clicked
+			case R.id.imb_Map:
+			{
+				Intent iMapIntent = new Intent(v.getContext(), MapTry.class);
+				iMapIntent.putExtra("extra_Name", sName);
+				startActivityForResult(iMapIntent, REQ_CODE_MAP);    
+				break;
+			}*/
 			// Case the save place button clicked
 			case R.id.b_save_place:
 			{
@@ -230,6 +243,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 					intent.putExtra("extra_Tags", sTags);
 					intent.putExtra("extra_Text", sText);
 					intent.putExtra("extra_ImgPath", sImgPath);
+					intent.putExtra("extra_Point", sPoint);
 					intent.putExtra("extra_Date", sDate);
 					
 					// After Saving- showing the saved place
@@ -272,7 +286,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 		{
 			// Save the chosen Image
 			// DEBUG
-			SaveImage();
+			//SaveImage();
 			
             // Creating an instance of SQL connecor class
 			SQL_Connector entry = new SQL_Connector(this);					          
@@ -286,7 +300,7 @@ public class AddPlace extends Activity implements View.OnClickListener
 			}
 			
 			// Saving the place properties in the table
-			entry.createEntry(sName, sText, sTags, sImgPath, sDate);
+			entry.createEntry(sName, sText, sTags, sImgPath, sPoint, sDate);
 			
 			entry.close();
 		}
@@ -351,6 +365,13 @@ public class AddPlace extends Activity implements View.OnClickListener
 		        }
 		    	break;
 		    }
+		    case REQ_CODE_MAP:
+		      {
+		    	  if(resultCode == RESULT_OK) 
+		    	  {
+		    		  this.sPoint = data.getStringExtra("extra_Point");
+		    	  }
+		      } 
 		    
 			default:break;
 		}

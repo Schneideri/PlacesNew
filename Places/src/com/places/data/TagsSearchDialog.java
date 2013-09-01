@@ -29,6 +29,7 @@ public class TagsSearchDialog extends Activity
         bSearch =  (Button)findViewById(R.id.bSearch_tagsdialog);
         bSearch.setOnClickListener(	new OnClickListener() 
         {
+        	// when ok button clicked - adding extras to the result Intent
         	public void onClick(View v) 
         	{
 		  		// TODO Auto-generated method stub

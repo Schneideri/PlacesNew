@@ -1,19 +1,13 @@
 package com.places.data;
 
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
+
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.location.GpsStatus.Listener;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ViewPlace extends FragmentActivity implements android.content.DialogInterface.OnClickListener
+public class ViewPlace extends Activity implements android.content.DialogInterface.OnClickListener
 {
 	private ImageView imgPic;
 	private TextView txtName;
@@ -32,10 +26,9 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 	private TextView txtText;
 	private TextView txtDate;
 	private String sImgPath;
-	private GoogleMap gmMap;
-	
+	private String sMapPoint;
 
-	
+		
 	protected void onCreateView(Bundle savedInstanceState) 
 	{
 		
@@ -49,14 +42,6 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 		txtText = (TextView)findViewById(R.id.tv_SinglePlace_text);
 		txtDate = (TextView)findViewById(R.id.tv_SinglePlace_date);
 		
-		// MAP
-		/*
-		 GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
-	    
-		 FragmentManager myFM = getSupportFragmentManager();  
-		 SupportMapFragment myMAPF = (SupportMapFragment) myFM.findFragmentById(R.id.frMapView);
-
-		 gmMap = myMAPF.getMap();*/
 		
 		// gets the previously created intent
 		Intent thisIntent = getIntent(); 
@@ -66,6 +51,9 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 		this.txtTags.setText("[ " + sTags + " ]");
 		this.txtText.setText(thisIntent.getStringExtra("extra_Text"));
 		this.txtDate.setText(thisIntent.getStringExtra("extra_Date"));
+		
+		// TODO Display the point on the map
+		
 		//DEBUG
 		this.sImgPath = thisIntent.getStringExtra("extra_ImgPath");
 		this.imgPic.setImageBitmap(BitmapFactory.decodeFile(thisIntent.getStringExtra("extra_ImgPath")));				
@@ -98,6 +86,7 @@ public class ViewPlace extends FragmentActivity implements android.content.Dialo
 	        	intentToEdit.putExtra("extra_Tags", this.sTags);
 	        	intentToEdit.putExtra("extra_Date", this.txtDate.getText());
 	        	intentToEdit.putExtra("extra_Path", this.sImgPath);
+	        	intentToEdit.putExtra("extra_Point", this.sMapPoint);
 	        	
 	        	// Switching to edit the place layout
 	        	startActivity(intentToEdit);

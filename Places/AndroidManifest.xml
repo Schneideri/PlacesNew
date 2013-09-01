@@ -42,8 +42,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddPlace" android:label="Add new place"
-            android:screenOrientation="portrait"
-            android:noHistory="true">
+            android:screenOrientation="portrait">
         </activity>
          <activity android:name=".AllPlaces" android:label="Show all Places"
             android:screenOrientation="portrait"

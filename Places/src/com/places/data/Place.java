@@ -22,6 +22,7 @@ public class Place
 	private String sTags;
 	private String sText;
 	private String sPath;
+	private String sMapPoint;
 	private String sDate;
 	private final Context ourContext;
 	private LayoutParams layouParams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, 
@@ -32,14 +33,16 @@ public class Place
 	private LayoutParams PicLayout = new LayoutParams(200,200,1);
 	
 	
+	
 	// ctor for place - receiving name tags text and path 
-	public Place(Context con, String Name, String Tags, String Text, String Path, String Date)
+	public Place(Context con, String Name, String Tags, String Text, String Path, String Date, String Point)
 	{
 		this.ourContext = con;
 		this.sName = Name;
 		this.sTags = Tags;
 		this.sText = Text;
 		this.sPath = Path;
+		this.sMapPoint = Point;
 		this.sDate = Date;
 		
 		layouParams.setMargins(5, 10, 5, 10);
@@ -68,6 +71,10 @@ public class Place
 	{
 		return this.sPath; 
 	}
+	public String GetMapPoint()
+	{
+		return this.sMapPoint;
+	}
 	public String GetDate()
 	{
 		return this.sDate; 
@@ -86,6 +93,10 @@ public class Place
     public void setTags(String tags) 
     {
         this.sTags = tags;
+    }
+    public void setMapPoint(String point)
+    {
+    	this.sMapPoint = point;
     }
 	
 	// Returns the image view of the image stored in the spesific path

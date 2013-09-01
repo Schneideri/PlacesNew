@@ -16,13 +16,20 @@ public class SQL_Connector
 	private static final String KEY_TEXT =  "place_text";
 	private static final String KEY_TAGS = "place_tags";
 	private static final String KEY_IMG_PATH = "place_img_path";
+	private static final String KEY_MAP_POINT = "place_point";
 	private static final String KEY_DATE = "place_date";
 	
 	
 	private static final String DB_NAME = "PlacesDB";
 	private static final String DB_TABLE = "PlacesTable";
 	private static final int DB_VERSION = 1;
-	private static String[] columns = new String[] {KEY_ROWID, KEY_NAME, KEY_TEXT, KEY_TAGS, KEY_IMG_PATH, KEY_DATE};
+	private static String[] columns = new String[] {KEY_ROWID,
+													KEY_NAME, 
+													KEY_TEXT, 
+													KEY_TAGS, 
+													KEY_IMG_PATH, 
+													KEY_MAP_POINT, 
+													KEY_DATE};
 	
 	private DbHelper ourHelper;
 	private final Context ourContext;
@@ -46,6 +53,7 @@ public class SQL_Connector
 					KEY_NAME + " TEXT NOT NULL, " +
 					KEY_TEXT + " TEXT, " +
 					KEY_TAGS + " TEXT, " +
+					KEY_MAP_POINT + " TEXT," +
 					KEY_IMG_PATH + " TEXT, " +
 					KEY_DATE + " TEXT);");
 		}
@@ -80,7 +88,7 @@ public class SQL_Connector
 	}
 
 	public long createEntry(String sName, String sText,
-			String sTags, String sImgPath, String sCurDate) 
+			String sTags, String sImgPath, String sMapPoint, String sCurDate) 
 	{
 		// For the inserted entry
 		ContentValues cv = new ContentValues();
@@ -90,6 +98,7 @@ public class SQL_Connector
 		cv.put(KEY_TEXT, sText);
 		cv.put(KEY_TAGS, sTags);
 		cv.put(KEY_IMG_PATH, sImgPath);
+		cv.put(KEY_MAP_POINT, sMapPoint);
 		cv.put(KEY_DATE, sCurDate);
 		
 		// inserting the puts
@@ -110,6 +119,7 @@ public class SQL_Connector
 		int iText = c.getColumnIndex(KEY_TEXT);
 		int iTags = c.getColumnIndex(KEY_TAGS);
 		int iPath = c.getColumnIndex(KEY_IMG_PATH);
+		int iPoint = c.getColumnIndex(KEY_MAP_POINT);
 		int iDate = c.getColumnIndex(KEY_DATE);
 		
 		// Reading every row in the table
@@ -120,6 +130,7 @@ public class SQL_Connector
 											   c.getString(iTags),
 											   c.getString(iText),
 											   c.getString(iPath),
+											   c.getString(iPoint),
 											   c.getString(iDate));
 			
 			// Add the current place to the returned list
@@ -162,7 +173,8 @@ public class SQL_Connector
 				KEY_TEXT + " TEXT, " +
 				KEY_TAGS + " TEXT, " +
 				KEY_IMG_PATH + " TEXT, " +
-				KEY_DATE + " Text);");
+				KEY_MAP_POINT + " TEXT, " +
+				KEY_DATE + " TEXT);");
 	}
 	
 	public void DeletePlace(String sName)
